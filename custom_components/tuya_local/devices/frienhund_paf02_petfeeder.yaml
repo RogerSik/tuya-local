@@ -1,0 +1,74 @@
+name: Pet feeder
+products:
+  - id: qyilqivtx4uhd5r4
+    manufacturer: Frienhund
+    model: PAF-02
+entities:
+  - entity: text
+    translation_key: meal_plan
+    category: config
+    hidden: true
+    dps:
+      - id: 1
+        type: base64
+        optional: true
+        name: value
+  - entity: number
+    translation_key: manual_feed
+    dps:
+      - id: 3
+        type: integer
+        optional: true
+        persist: false
+        name: value
+        unit: portions
+        range:
+          min: 1
+          max: 12
+  - entity: sensor
+    class: enum
+    translation_key: status
+    category: diagnostic
+    dps:
+      - id: 4
+        type: string
+        name: sensor
+        mapping:
+          - dps_val: standby
+            value: standby
+          - dps_val: feeding
+            value: feeding
+  - entity: sensor
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 10
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: binary_sensor
+    class: battery_charging
+    category: diagnostic
+    dps:
+      - id: 11
+        type: boolean
+        optional: true
+        name: sensor
+  - entity: sensor
+    name: Feed report
+    category: diagnostic
+    dps:
+      - id: 15
+        type: integer
+        optional: true
+        name: sensor
+        unit: portions
+  - entity: switch
+    name: Slow feed
+    icon: "mdi:speedometer-slow"
+    category: config
+    dps:
+      - id: 23
+        type: boolean
+        name: switch

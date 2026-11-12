@@ -3,9 +3,6 @@ products:
   - id: go142kwowvlxvmmn
     manufacturer: Petempo
     model: PAF-02
-  - id: qyilqivtx4uhd5r4
-    manufacturer: Frienhund
-    model: PAF-02
 entities:
   - entity: button
     name: Quick feed
